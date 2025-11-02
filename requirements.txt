@@ -14,3 +14,10 @@ pyarrow
 fastparquet
 streamlit 
 plotly
+vaderSentiment
+feedparser
+beautifulsoup4
+torch
+transformers
+torchvisiion
+torchaudio
