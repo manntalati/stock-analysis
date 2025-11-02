@@ -1,0 +1,8 @@
+{
+  "name": "Default",
+  "tickers": [
+    "AAPL",
+    "MSFT",
+    "NVDA"
+  ]
+}

@@ -1,0 +1,16 @@
+numpy
+pandas
+scipy
+statsmodels
+scikit-learn
+yfinance
+matplotlib
+rich
+pyyaml
+pytest
+lxml
+requests
+pyarrow
+fastparquet
+streamlit 
+plotly

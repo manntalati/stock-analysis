@@ -1,0 +1,38 @@
+name: stocklab-daily
+
+on:
+  schedule:
+    - cron: "30 21 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          pip install -r requirements.txt
+          pip install yfinance streamlit plotly
+      - name: Pipeline
+        run: |
+          . .venv/bin/activate
+          python -m stocklab.cli build-universe --source sp500
+          python -m stocklab.cli fetch --start 2015-01-01
+          python -m stocklab.cli features
+          python -m stocklab.cli predict
+          python -m stocklab.cli score
+          python -m stocklab.cli backtest --start 2018-01-01 --end 2024-12-31
+          python -m stocklab.cli report-html
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            data/reports/**
+            data/signals/**

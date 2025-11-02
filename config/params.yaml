@@ -1,0 +1,7 @@
+risk_free_daily: 0.00003
+top_n: 20
+max_pos_w: 0.08
+turnover_limit: 0.5
+tx_cost_bps: 5
+min_price: 5
+min_adv_usd: 3000000

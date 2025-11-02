@@ -1,0 +1,22 @@
+universe:
+  source: "sp500"
+  min_price: 5
+  min_adv_usd: 3000000
+params:
+  lookbacks:
+    vol: 63
+    atr: 14
+    slope: 63
+    ma_short: 50
+    ma_long: 200
+  top_n: 20
+  max_pos_w: 0.08
+  min_adv_usd: 1000000
+  tx_cost_bps: 5
+scores:
+  w_mom: 0.5
+  w_trend: 0.25
+  w_risk: 0.15
+  w_pred: 0.10
+report:
+  benchmark: "SPY"

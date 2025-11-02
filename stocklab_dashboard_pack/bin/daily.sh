@@ -1,11 +1,5 @@
-# stocklab_pro
-
-Install:
-python -m venv .venv
-. .venv/bin/activate
-pip install -r requirements.txt
-
-Daily:
+#!/usr/bin/env bash
+set -e
 python -m stocklab.cli build-universe --source sp500
 python -m stocklab.cli fetch --start 2015-01-01
 python -m stocklab.cli features
@@ -13,10 +7,5 @@ python -m stocklab.cli predict
 python -m stocklab.cli score
 python -m stocklab.cli backtest --start 2018-01-01 --end 2024-12-31
 python -m stocklab.cli report-html
-python -m stocklab.cli picks --date 2025-10-31 --top 20
-
-Optimize:
-python -m stocklab.cli optimize --start 2018-01-01 --end 2024-12-31
-
-Validate:
-python -m stocklab.cli validate
+today=$(date +%F)
+python -m stocklab.cli picks --date "$today" --top 20 || true
